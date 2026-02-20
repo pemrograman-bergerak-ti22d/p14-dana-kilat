@@ -35,3 +35,13 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Saat mode scan aktif, buat background transparan */
+body.barcode-scanner-active {
+  background: transparent !important;
+  --background: transparent !important;
+
+  ion-content {
+    --background: transparent !important;
+  }
+}

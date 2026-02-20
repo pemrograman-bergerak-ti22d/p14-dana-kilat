@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true" class="merchant-bg">
+
+  <!-- HEADER -->
+  <div class="merchant-header">
+    <h2>Merchant QRIS</h2>
+    <p>Buat QR untuk menerima pembayaran</p>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+
+    <ion-item lines="none" class="input-item">
+      <ion-label position="stacked">Nama Merchant</ion-label>
+      <ion-input [(ngModel)]="namaMerchant"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-label position="stacked">Nominal Bayar</ion-label>
+      <ion-input type="number" [(ngModel)]="nominal"></ion-input>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      class="generate-btn"
+      (click)="generateQR()">
+      Generate QR
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="outline"
+      color="medium"
+      (click)="goToHome()">
+      Kembali ke Home
+    </ion-button>
+
+  </div>
+
+  <!-- QR RESULT -->
+  <div *ngIf="qrImage" class="qr-card">
+
+    <img [src]="qrImage" />
+
+    <div class="qr-info">
+      <h3>{{ namaMerchant }}</h3>
+      <p>Rp {{ nominal | number:'1.0-0' }}</p>
+    </div>
+
+    <div class="scan-text">
+      Scan QR untuk bayar
+    </div>
+
+  </div>
+
+</ion-content>
